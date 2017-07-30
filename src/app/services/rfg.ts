@@ -25,7 +25,7 @@ export class RFGData {
 
             for(var d=count; d<(count+days); d++) blockTotal += dataValues.data[d];
 
-            averages.push(blockTotal/days);
+            averages.push(+(blockTotal/days).toFixed(3));
             count++;
         }
 
@@ -45,31 +45,102 @@ export class RFGData {
 
     labels(): string[] {
         var labelArray = [];
-        for(var i=(data.data.length-1); i>=0; i--) labelArray.push(data.data[i].close_date.toString());
+        for(var i=(data.data.length-1); i>=0; i--) labelArray.push(new Date(data.data[i].close_date).toDateString());
         return labelArray;
     }
 
     /** gets raw raw as a LineDataRow */
     data(label: string): LineRow {
-        var dataArray = [];
-        /*var lineRow: LineRow = {
-            data: <Array<LineRowItem>>[],
-            series: label
-        };*/
+        var dataArray = [];    
 
-        for(var i=(data.data.length-1); i>=0; i--) {
-            /*lineRow.data.push({
-                point: data.data[i].close_price,
-                label: data.data[i].close_date
-            });*/
-            dataArray.push(data.data[i].close_price);
-        }   
+        for(var i=(data.data.length-1); i>=0; i--) dataArray.push(+(data.data[i].close_price).toFixed(3));          
 
         //return lineRow;
         return {
             data: dataArray,
             series: label
         };
+    }
+
+    /** plots an average stock price for total length of element */
+    avgPlot(data: number[]): number[] {
+        var arr: number[] = [];
+        var avg = this.average(data);
+        data.forEach(v => {
+            arr.push(avg);
+        });
+        return arr;
+    }
+
+    /** plots a lower sector average of a stocks avergage price */
+    avgLowerPlot(data: number[]): number[] {
+        var arr: number[] = [];
+        var lower = this.lower(data);
+        data.forEach(v => {
+            arr.push(lower);
+        });
+        return arr;
+    }
+
+    avgUpperPlot(data: number[]): number[] {
+        var arr: number[] = [];
+        var upper = this.upper(data);
+        data.forEach(v => {
+            arr.push(upper);
+        });
+        return arr;
+    }
+
+    lowestPlot(data: number[]): number[] {
+        var arr: number[] =[];
+        var lowest = this.lowest(data);
+        data.forEach(v => {
+            arr.push(lowest);
+        });
+        return arr;
+    }
+
+    private average(data: number[]): number {
+        var total=0;
+        for(var n=0;n<data.length;n++) total += data[n];
+        return +(total/data.length).toFixed(3);
+    }
+
+    private lower(data: number[]): number {
+        var average = this.average(data);
+        var lowerValues = [];
+        var total=0;
+        data.forEach(v => {
+            if(v < average) {
+                lowerValues.push(v);
+                total += v;
+            }
+        });
+        return +(total/lowerValues.length).toFixed(3);
+    }
+
+    private upper(data: number[]): number {
+        var average = this.average(data);
+        var higherValues = [];
+        var total=0;
+        data.forEach(v => {
+            if(v > average) {
+                higherValues.push(v);
+                total += v;
+            }
+        });
+        return +(total/higherValues.length).toFixed(3);
+    }
+
+    private lowest(data: number[]): number {
+        var lowest;
+        data.forEach(v => {
+            if(!lowest) lowest = v;
+            else {
+                if(v < lowest) lowest = v;
+            }
+        });
+        return lowest;
     }
 
 }
@@ -112,6 +183,16 @@ export interface StockData {
 /** 200 Day data */
 var data: any = {
   "data": [
+    {
+      "code": "RFG",
+      "close_date": "2017-07-28T00:00:00+1000",
+      "close_price": 4.78,
+      "change_price": -0.04,
+      "volume": 628672,
+      "day_high_price": 4.82,
+      "day_low_price": 4.75,
+      "change_in_percent": "-0.83%"
+    },
     {
       "code": "RFG",
       "close_date": "2017-07-27T00:00:00+1000",
@@ -2111,6 +2192,836 @@ var data: any = {
       "day_high_price": 6.96,
       "day_low_price": 6.87,
       "change_in_percent": "0.29%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-10-10T00:00:00+1100",
+      "close_price": 6.89,
+      "change_price": 0.01,
+      "volume": 552977,
+      "day_high_price": 6.985,
+      "day_low_price": 6.87,
+      "change_in_percent": "0.145%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-10-07T00:00:00+1100",
+      "close_price": 6.88,
+      "change_price": -0.06,
+      "volume": 1023632,
+      "day_high_price": 6.93,
+      "day_low_price": 6.86,
+      "change_in_percent": "-0.865%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-10-06T00:00:00+1100",
+      "close_price": 6.94,
+      "change_price": -0.1,
+      "volume": 982624,
+      "day_high_price": 7.11,
+      "day_low_price": 6.93,
+      "change_in_percent": "-1.42%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-10-05T00:00:00+1100",
+      "close_price": 7.04,
+      "change_price": -0.06,
+      "volume": 695949,
+      "day_high_price": 7.15,
+      "day_low_price": 7.03,
+      "change_in_percent": "-0.845%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-10-04T00:00:00+1100",
+      "close_price": 7.1,
+      "change_price": -0.02,
+      "volume": 862116,
+      "day_high_price": 7.23,
+      "day_low_price": 7.09,
+      "change_in_percent": "-0.281%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-10-03T00:00:00+1100",
+      "close_price": 7.12,
+      "change_price": 0.15,
+      "volume": 826667,
+      "day_high_price": 7.22,
+      "day_low_price": 7.02,
+      "change_in_percent": "2.152%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-30T00:00:00+1000",
+      "close_price": 6.97,
+      "change_price": -0.14,
+      "volume": 833391,
+      "day_high_price": 7.11,
+      "day_low_price": 6.945,
+      "change_in_percent": "-1.969%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-29T00:00:00+1000",
+      "close_price": 7.11,
+      "change_price": -0.15,
+      "volume": 1380075,
+      "day_high_price": 7.21,
+      "day_low_price": 6.92,
+      "change_in_percent": "-2.066%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-28T00:00:00+1000",
+      "close_price": 7.26,
+      "change_price": -0.07,
+      "volume": 616587,
+      "day_high_price": 7.35,
+      "day_low_price": 7.185,
+      "change_in_percent": "-0.955%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-27T00:00:00+1000",
+      "close_price": 7.33,
+      "change_price": 0,
+      "volume": 687001,
+      "day_high_price": 7.35,
+      "day_low_price": 7.27,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-26T00:00:00+1000",
+      "close_price": 7.33,
+      "change_price": 0.05,
+      "volume": 498577,
+      "day_high_price": 7.37,
+      "day_low_price": 7.29,
+      "change_in_percent": "0.687%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-23T00:00:00+1000",
+      "close_price": 7.28,
+      "change_price": 0.08,
+      "volume": 964208,
+      "day_high_price": 7.28,
+      "day_low_price": 7.15,
+      "change_in_percent": "1.111%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-22T00:00:00+1000",
+      "close_price": 7.2,
+      "change_price": 0.16,
+      "volume": 897571,
+      "day_high_price": 7.2,
+      "day_low_price": 7.07,
+      "change_in_percent": "2.273%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-21T00:00:00+1000",
+      "close_price": 7.04,
+      "change_price": 0.14,
+      "volume": 624253,
+      "day_high_price": 7.05,
+      "day_low_price": 6.92,
+      "change_in_percent": "2.029%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-20T00:00:00+1000",
+      "close_price": 6.9,
+      "change_price": -0.09,
+      "volume": 693157,
+      "day_high_price": 7,
+      "day_low_price": 6.87,
+      "change_in_percent": "-1.288%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-19T00:00:00+1000",
+      "close_price": 6.99,
+      "change_price": -0.01,
+      "volume": 145304,
+      "day_high_price": 7.03,
+      "day_low_price": 6.95,
+      "change_in_percent": "-0.143%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-16T00:00:00+1000",
+      "close_price": 7,
+      "change_price": 0.12,
+      "volume": 1625431,
+      "day_high_price": 7.07,
+      "day_low_price": 6.89,
+      "change_in_percent": "1.744%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-15T00:00:00+1000",
+      "close_price": 6.88,
+      "change_price": -0.01,
+      "volume": 823100,
+      "day_high_price": 6.93,
+      "day_low_price": 6.8,
+      "change_in_percent": "-0.145%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-14T00:00:00+1000",
+      "close_price": 6.89,
+      "change_price": 0.12,
+      "volume": 901266,
+      "day_high_price": 6.9,
+      "day_low_price": 6.77,
+      "change_in_percent": "1.773%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-13T00:00:00+1000",
+      "close_price": 6.77,
+      "change_price": 0.22,
+      "volume": 806422,
+      "day_high_price": 6.81,
+      "day_low_price": 6.65,
+      "change_in_percent": "3.359%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-12T00:00:00+1000",
+      "close_price": 6.55,
+      "change_price": -0.23,
+      "volume": 824897,
+      "day_high_price": 6.7,
+      "day_low_price": 6.51,
+      "change_in_percent": "-3.392%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-09T00:00:00+1000",
+      "close_price": 6.78,
+      "change_price": -0.16,
+      "volume": 1043754,
+      "day_high_price": 6.88,
+      "day_low_price": 6.65,
+      "change_in_percent": "-2.305%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-08T00:00:00+1000",
+      "close_price": 6.94,
+      "change_price": -0.08,
+      "volume": 1084664,
+      "day_high_price": 7.1,
+      "day_low_price": 6.91,
+      "change_in_percent": "-1.14%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-07T00:00:00+1000",
+      "close_price": 7.02,
+      "change_price": 0.13,
+      "volume": 1227534,
+      "day_high_price": 7.17,
+      "day_low_price": 6.89,
+      "change_in_percent": "1.887%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-06T00:00:00+1000",
+      "close_price": 6.89,
+      "change_price": 0.06,
+      "volume": 855890,
+      "day_high_price": 6.94,
+      "day_low_price": 6.82,
+      "change_in_percent": "0.878%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-05T00:00:00+1000",
+      "close_price": 6.83,
+      "change_price": 0,
+      "volume": 676836,
+      "day_high_price": 6.92,
+      "day_low_price": 6.77,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-02T00:00:00+1000",
+      "close_price": 6.83,
+      "change_price": 0.05,
+      "volume": 812081,
+      "day_high_price": 6.87,
+      "day_low_price": 6.73,
+      "change_in_percent": "0.737%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-09-01T00:00:00+1000",
+      "close_price": 6.78,
+      "change_price": -0.09,
+      "volume": 952764,
+      "day_high_price": 6.92,
+      "day_low_price": 6.76,
+      "change_in_percent": "-1.31%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-31T00:00:00+1000",
+      "close_price": 6.87,
+      "change_price": 0.16,
+      "volume": 1291060,
+      "day_high_price": 7.04,
+      "day_low_price": 6.76,
+      "change_in_percent": "2.385%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-30T00:00:00+1000",
+      "close_price": 6.71,
+      "change_price": 0.13,
+      "volume": 865391,
+      "day_high_price": 6.84,
+      "day_low_price": 6.56,
+      "change_in_percent": "1.976%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-29T00:00:00+1000",
+      "close_price": 6.58,
+      "change_price": -0.03,
+      "volume": 1052556,
+      "day_high_price": 6.63,
+      "day_low_price": 6.42,
+      "change_in_percent": "-0.454%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-26T00:00:00+1000",
+      "close_price": 6.61,
+      "change_price": 0.19,
+      "volume": 1302339,
+      "day_high_price": 6.72,
+      "day_low_price": 6.48,
+      "change_in_percent": "2.96%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-25T00:00:00+1000",
+      "close_price": 6.42,
+      "change_price": 0.45,
+      "volume": 2460300,
+      "day_high_price": 6.62,
+      "day_low_price": 6.09,
+      "change_in_percent": "7.538%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-24T00:00:00+1000",
+      "close_price": 5.97,
+      "change_price": -0.01,
+      "volume": 295117,
+      "day_high_price": 5.99,
+      "day_low_price": 5.95,
+      "change_in_percent": "-0.167%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-23T00:00:00+1000",
+      "close_price": 5.98,
+      "change_price": 0.01,
+      "volume": 492096,
+      "day_high_price": 6,
+      "day_low_price": 5.96,
+      "change_in_percent": "0.168%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-22T00:00:00+1000",
+      "close_price": 5.97,
+      "change_price": 0.01,
+      "volume": 506726,
+      "day_high_price": 6,
+      "day_low_price": 5.95,
+      "change_in_percent": "0.168%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-19T00:00:00+1000",
+      "close_price": 5.96,
+      "change_price": 0.1,
+      "volume": 703150,
+      "day_high_price": 5.98,
+      "day_low_price": 5.86,
+      "change_in_percent": "1.706%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-18T00:00:00+1000",
+      "close_price": 5.86,
+      "change_price": -0.04,
+      "volume": 550954,
+      "day_high_price": 5.93,
+      "day_low_price": 5.86,
+      "change_in_percent": "-0.678%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-17T00:00:00+1000",
+      "close_price": 5.9,
+      "change_price": 0.06,
+      "volume": 549970,
+      "day_high_price": 5.9,
+      "day_low_price": 5.85,
+      "change_in_percent": "1.027%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-16T00:00:00+1000",
+      "close_price": 5.84,
+      "change_price": -0.02,
+      "volume": 324221,
+      "day_high_price": 5.87,
+      "day_low_price": 5.84,
+      "change_in_percent": "-0.341%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-15T00:00:00+1000",
+      "close_price": 5.86,
+      "change_price": 0.01,
+      "volume": 319473,
+      "day_high_price": 5.88,
+      "day_low_price": 5.83,
+      "change_in_percent": "0.171%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-12T00:00:00+1000",
+      "close_price": 5.85,
+      "change_price": 0.05,
+      "volume": 521114,
+      "day_high_price": 5.87,
+      "day_low_price": 5.8,
+      "change_in_percent": "0.862%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-11T00:00:00+1000",
+      "close_price": 5.8,
+      "change_price": -0.02,
+      "volume": 352607,
+      "day_high_price": 5.86,
+      "day_low_price": 5.785,
+      "change_in_percent": "-0.344%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-10T00:00:00+1000",
+      "close_price": 5.82,
+      "change_price": 0.04,
+      "volume": 432897,
+      "day_high_price": 5.86,
+      "day_low_price": 5.75,
+      "change_in_percent": "0.692%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-09T00:00:00+1000",
+      "close_price": 5.78,
+      "change_price": -0.09,
+      "volume": 352288,
+      "day_high_price": 5.87,
+      "day_low_price": 5.76,
+      "change_in_percent": "-1.533%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-08T00:00:00+1000",
+      "close_price": 5.87,
+      "change_price": 0.02,
+      "volume": 488056,
+      "day_high_price": 5.9,
+      "day_low_price": 5.86,
+      "change_in_percent": "0.342%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-05T00:00:00+1000",
+      "close_price": 5.85,
+      "change_price": 0.07,
+      "volume": 550399,
+      "day_high_price": 5.89,
+      "day_low_price": 5.8,
+      "change_in_percent": "1.211%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-04T00:00:00+1000",
+      "close_price": 5.78,
+      "change_price": 0.02,
+      "volume": 509016,
+      "day_high_price": 5.865,
+      "day_low_price": 5.78,
+      "change_in_percent": "0.347%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-03T00:00:00+1000",
+      "close_price": 5.76,
+      "change_price": -0.1,
+      "volume": 510345,
+      "day_high_price": 5.87,
+      "day_low_price": 5.75,
+      "change_in_percent": "-1.706%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-02T00:00:00+1000",
+      "close_price": 5.86,
+      "change_price": 0.03,
+      "volume": 370462,
+      "day_high_price": 5.9,
+      "day_low_price": 5.82,
+      "change_in_percent": "0.515%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-08-01T00:00:00+1000",
+      "close_price": 5.83,
+      "change_price": 0.06,
+      "volume": 479124,
+      "day_high_price": 5.85,
+      "day_low_price": 5.79,
+      "change_in_percent": "1.04%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-29T00:00:00+1000",
+      "close_price": 5.77,
+      "change_price": -0.01,
+      "volume": 396452,
+      "day_high_price": 5.81,
+      "day_low_price": 5.74,
+      "change_in_percent": "-0.173%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-28T00:00:00+1000",
+      "close_price": 5.78,
+      "change_price": 0.06,
+      "volume": 429230,
+      "day_high_price": 5.82,
+      "day_low_price": 5.74,
+      "change_in_percent": "1.049%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-27T00:00:00+1000",
+      "close_price": 5.72,
+      "change_price": 0.04,
+      "volume": 471029,
+      "day_high_price": 5.74,
+      "day_low_price": 5.67,
+      "change_in_percent": "0.704%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-26T00:00:00+1000",
+      "close_price": 5.68,
+      "change_price": -0.01,
+      "volume": 513723,
+      "day_high_price": 5.7,
+      "day_low_price": 5.655,
+      "change_in_percent": "-0.176%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-25T00:00:00+1000",
+      "close_price": 5.69,
+      "change_price": -0.03,
+      "volume": 646651,
+      "day_high_price": 5.77,
+      "day_low_price": 5.66,
+      "change_in_percent": "-0.524%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-22T00:00:00+1000",
+      "close_price": 5.72,
+      "change_price": -0.05,
+      "volume": 197088,
+      "day_high_price": 5.77,
+      "day_low_price": 5.72,
+      "change_in_percent": "-0.867%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-21T00:00:00+1000",
+      "close_price": 5.77,
+      "change_price": -0.01,
+      "volume": 617376,
+      "day_high_price": 5.81,
+      "day_low_price": 5.76,
+      "change_in_percent": "-0.173%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-20T00:00:00+1000",
+      "close_price": 5.78,
+      "change_price": 0.06,
+      "volume": 440793,
+      "day_high_price": 5.84,
+      "day_low_price": 5.73,
+      "change_in_percent": "1.049%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-19T00:00:00+1000",
+      "close_price": 5.72,
+      "change_price": 0.05,
+      "volume": 418945,
+      "day_high_price": 5.72,
+      "day_low_price": 5.67,
+      "change_in_percent": "0.882%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-18T00:00:00+1000",
+      "close_price": 5.67,
+      "change_price": 0.07,
+      "volume": 636767,
+      "day_high_price": 5.695,
+      "day_low_price": 5.58,
+      "change_in_percent": "1.25%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-15T00:00:00+1000",
+      "close_price": 5.6,
+      "change_price": -0.01,
+      "volume": 318940,
+      "day_high_price": 5.63,
+      "day_low_price": 5.58,
+      "change_in_percent": "-0.178%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-14T00:00:00+1000",
+      "close_price": 5.61,
+      "change_price": 0.02,
+      "volume": 330779,
+      "day_high_price": 5.64,
+      "day_low_price": 5.56,
+      "change_in_percent": "0.358%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-13T00:00:00+1000",
+      "close_price": 5.59,
+      "change_price": 0.1,
+      "volume": 718505,
+      "day_high_price": 5.68,
+      "day_low_price": 5.52,
+      "change_in_percent": "1.821%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-12T00:00:00+1000",
+      "close_price": 5.49,
+      "change_price": -0.01,
+      "volume": 823016,
+      "day_high_price": 5.57,
+      "day_low_price": 5.49,
+      "change_in_percent": "-0.182%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-11T00:00:00+1000",
+      "close_price": 5.5,
+      "change_price": 0.02,
+      "volume": 875714,
+      "day_high_price": 5.52,
+      "day_low_price": 5.48,
+      "change_in_percent": "0.365%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-08T00:00:00+1000",
+      "close_price": 5.48,
+      "change_price": 0,
+      "volume": 351602,
+      "day_high_price": 5.5,
+      "day_low_price": 5.45,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-07T00:00:00+1000",
+      "close_price": 5.48,
+      "change_price": 0.03,
+      "volume": 507159,
+      "day_high_price": 5.52,
+      "day_low_price": 5.48,
+      "change_in_percent": "0.55%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-06T00:00:00+1000",
+      "close_price": 5.45,
+      "change_price": -0.09,
+      "volume": 530496,
+      "day_high_price": 5.57,
+      "day_low_price": 5.43,
+      "change_in_percent": "-1.625%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-05T00:00:00+1000",
+      "close_price": 5.54,
+      "change_price": -0.04,
+      "volume": 326981,
+      "day_high_price": 5.59,
+      "day_low_price": 5.51,
+      "change_in_percent": "-0.717%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-04T00:00:00+1000",
+      "close_price": 5.58,
+      "change_price": 0,
+      "volume": 463168,
+      "day_high_price": 5.6,
+      "day_low_price": 5.52,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-07-01T00:00:00+1000",
+      "close_price": 5.58,
+      "change_price": 0.05,
+      "volume": 472495,
+      "day_high_price": 5.635,
+      "day_low_price": 5.54,
+      "change_in_percent": "0.904%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-30T00:00:00+1000",
+      "close_price": 5.53,
+      "change_price": 0.18,
+      "volume": 409465,
+      "day_high_price": 5.545,
+      "day_low_price": 5.41,
+      "change_in_percent": "3.364%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-29T00:00:00+1000",
+      "close_price": 5.35,
+      "change_price": 0.1,
+      "volume": 534522,
+      "day_high_price": 5.43,
+      "day_low_price": 5.33,
+      "change_in_percent": "1.905%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-28T00:00:00+1000",
+      "close_price": 5.25,
+      "change_price": -0.13,
+      "volume": 864405,
+      "day_high_price": 5.4,
+      "day_low_price": 5.25,
+      "change_in_percent": "-2.416%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-27T00:00:00+1000",
+      "close_price": 5.38,
+      "change_price": 0.05,
+      "volume": 767849,
+      "day_high_price": 5.49,
+      "day_low_price": 5.33,
+      "change_in_percent": "0.938%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-24T00:00:00+1000",
+      "close_price": 5.33,
+      "change_price": -0.2,
+      "volume": 932989,
+      "day_high_price": 5.59,
+      "day_low_price": 5.3,
+      "change_in_percent": "-3.617%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-23T00:00:00+1000",
+      "close_price": 5.53,
+      "change_price": 0.02,
+      "volume": 208120,
+      "day_high_price": 5.54,
+      "day_low_price": 5.49,
+      "change_in_percent": "0.363%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-22T00:00:00+1000",
+      "close_price": 5.51,
+      "change_price": 0.01,
+      "volume": 475104,
+      "day_high_price": 5.58,
+      "day_low_price": 5.48,
+      "change_in_percent": "0.182%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-21T00:00:00+1000",
+      "close_price": 5.5,
+      "change_price": 0.06,
+      "volume": 309364,
+      "day_high_price": 5.54,
+      "day_low_price": 5.42,
+      "change_in_percent": "1.103%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-20T00:00:00+1000",
+      "close_price": 5.44,
+      "change_price": 0.09,
+      "volume": 486595,
+      "day_high_price": 5.49,
+      "day_low_price": 5.38,
+      "change_in_percent": "1.682%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-17T00:00:00+1000",
+      "close_price": 5.35,
+      "change_price": -0.05,
+      "volume": 680432,
+      "day_high_price": 5.47,
+      "day_low_price": 5.35,
+      "change_in_percent": "-0.926%"
+    },
+    {
+      "code": "RFG",
+      "close_date": "2016-06-16T00:00:00+1000",
+      "close_price": 5.4,
+      "change_price": -0.01,
+      "volume": 668078,
+      "day_high_price": 5.57,
+      "day_low_price": 5.4,
+      "change_in_percent": "-0.185%"
     }
   ]
 };
