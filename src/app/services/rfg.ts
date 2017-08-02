@@ -37,9 +37,23 @@ export class RFGData {
 
     /** calculates the exponential moving average for set day range */
     private ema(days: number, label: string): LineRow {
+        var sma = this.sma(days, label);
+		var dataValues = this.data('raw');
+
+        // determine the exponential moving average
+        var exAvg: number[] = [];
+		var multiplier = (2 / (days + 1));
+        sma.data.forEach((d, i) => {
+			if(i === 0) exAvg.push(+d.toFixed(3));
+			else {
+				var exVal = (dataValues.data[i] - exAvg[i-1]) * multiplier + exAvg[i-1];
+				exAvg.push(+exVal.toFixed(3));
+			}
+        }); 
+
         return {
-            data: [],
-            series: 'Not Implemented'
+            data: exAvg,
+            series: label
         };
     }
 
@@ -60,7 +74,7 @@ export class RFGData {
             data: dataArray,
             series: label
         };
-    }
+    }	
 
     /** plots an average stock price for total length of element */
     avgPlot(data: number[]): number[] {

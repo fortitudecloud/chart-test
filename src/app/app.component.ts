@@ -93,6 +93,14 @@ export class AppComponent {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // 15 day EX
+      backgroundColor: 'rgba(255, 0, 0, 0.0)',
+      borderColor: 'rgba(121, 85, 72, 1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
   public lineChartLegend:boolean = true;
@@ -145,6 +153,7 @@ export class AppComponent {
       var sma5 = rfgData.ma({ days: 5, series: '5 Day MA', ema: false });
       var sma50 = rfgData.ma({ days: 50, series: '50 Day MA', ema: false });
       var sma200 = rfgData.ma({ days: 200, series: '200 Day MA', ema: false });
+      var ema15 = rfgData.ma({ days: 15, series: '15 Day EMA', ema: true });
 
       this.lineChartLabels = this.takeLastDays(+value, rfgData.labels());
 
@@ -157,7 +166,8 @@ export class AppComponent {
           {data: this.takeLastDays(+value, sma.data), label: sma.series},
           {data: this.takeLastDays(+value, sma5.data), label: sma5.series},
           {data: this.takeLastDays(+value, sma50.data), label: sma50.series},
-          {data: this.takeLastDays(+value, sma200.data), label: sma200.series}
+          {data: this.takeLastDays(+value, sma200.data), label: sma200.series},
+          {data: this.takeLastDays(+value, ema15.data), label: ema15.series}
       ]; 
 
       if(this._chart) window.setTimeout(() => {
