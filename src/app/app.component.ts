@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { RFGData } from './services/rfg';
+import { SHVData } from './services/shv';
 
 @Component({
   selector: 'app-root',
@@ -106,7 +107,7 @@ export class AppComponent {
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';
  
-  constructor(private rfgData: RFGData) {
+  constructor(private rfgData: RFGData, private shvData: SHVData) {
     // var data = rfgData.data('Price End');
     // var avg = { data: rfgData.avgPlot(data.data), label: 'Price Average' };
     // var low = { data: rfgData.avgLowerPlot(data.data), label: 'Price Low Average' };
@@ -143,19 +144,34 @@ export class AppComponent {
 
   changeRange(value) {
       var rfgData = this.rfgData;
+      var shvData = this.shvData;
 
-      var data = rfgData.data('Price End');
-      var avg = { data: rfgData.avgPlot(data.data), label: 'Price Average' };
-      var low = { data: rfgData.avgLowerPlot(data.data), label: 'Price Low Average' };
-      var high = { data: rfgData.avgUpperPlot(data.data), label: 'Price High Average' };
-      var floor = { data: rfgData.lowestPlot(data.data), label: 'Floor' };
-      var sma = rfgData.ma({ days: 15, series: '15 Day MA', ema: false });
-      var sma5 = rfgData.ma({ days: 5, series: '5 Day MA', ema: false });
-      var sma50 = rfgData.ma({ days: 50, series: '50 Day MA', ema: false });
-      var sma200 = rfgData.ma({ days: 200, series: '200 Day MA', ema: false });
-      var ema15 = rfgData.ma({ days: 15, series: '15 Day EMA', ema: true });
+      // RFG
+      // var data = rfgData.data('Price End');
+      // var avg = { data: rfgData.avgPlot(data.data), label: 'Price Average' };
+      // var low = { data: rfgData.avgLowerPlot(data.data), label: 'Price Low Average' };
+      // var high = { data: rfgData.avgUpperPlot(data.data), label: 'Price High Average' };
+      // var floor = { data: rfgData.lowestPlot(data.data), label: 'Floor' };
+      // var sma = rfgData.ma({ days: 15, series: '15 Day MA', ema: false });
+      // var sma5 = rfgData.ma({ days: 5, series: '5 Day MA', ema: false });
+      // var sma50 = rfgData.ma({ days: 50, series: '50 Day MA', ema: false });
+      // var sma200 = rfgData.ma({ days: 200, series: '200 Day MA', ema: false });
+      // var ema15 = rfgData.ma({ days: 15, series: '15 Day EMA', ema: true });
 
-      this.lineChartLabels = this.takeLastDays(+value, rfgData.labels());
+      // SHV
+      var data = shvData.data('Price End');
+      var avg = { data: shvData.avgPlot(data.data), label: 'Price Average' };
+      var low = { data: shvData.avgLowerPlot(data.data), label: 'Price Low Average' };
+      var high = { data: shvData.avgUpperPlot(data.data), label: 'Price High Average' };
+      var floor = { data: shvData.lowestPlot(data.data), label: 'Floor' };
+      var sma = shvData.ma({ days: 15, series: '15 Day MA', ema: false });
+      var sma5 = shvData.ma({ days: 5, series: '5 Day MA', ema: false });
+      var sma50 = shvData.ma({ days: 50, series: '50 Day MA', ema: false });
+      var sma200 = shvData.ma({ days: 200, series: '200 Day MA', ema: false });
+      var ema15 = shvData.ma({ days: 15, series: '15 Day EMA', ema: true });
+
+      //this.lineChartLabels = this.takeLastDays(+value, rfgData.labels());
+      this.lineChartLabels = this.takeLastDays(+value, shvData.labels());
 
       this.lineChartData = [
           {data: this.takeLastDays(+value, data.data), label: data.series},
