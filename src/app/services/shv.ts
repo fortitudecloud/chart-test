@@ -199,6 +199,286 @@ var data: any = {
   "data": [
     {
       "code": "SHV",
+      "close_date": "2017-09-12T00:00:00+1000",
+      "close_price": 4.06,
+      "change_price": -0.07,
+      "volume": 146798,
+      "day_high_price": 4.18,
+      "day_low_price": 4.06,
+      "change_in_percent": "-1.695%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-09-11T00:00:00+1000",
+      "close_price": 4.13,
+      "change_price": -0.02,
+      "volume": 131243,
+      "day_high_price": 4.19,
+      "day_low_price": 4.13,
+      "change_in_percent": "-0.482%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-09-08T00:00:00+1000",
+      "close_price": 4.15,
+      "change_price": 0.11,
+      "volume": 122031,
+      "day_high_price": 4.16,
+      "day_low_price": 4.05,
+      "change_in_percent": "2.723%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-09-07T00:00:00+1000",
+      "close_price": 4.04,
+      "change_price": 0,
+      "volume": 230550,
+      "day_high_price": 4.09,
+      "day_low_price": 4.04,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-09-06T00:00:00+1000",
+      "close_price": 4.04,
+      "change_price": 0,
+      "volume": 408890,
+      "day_high_price": 4.08,
+      "day_low_price": 4.03,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-09-05T00:00:00+1000",
+      "close_price": 4.04,
+      "change_price": -0.06,
+      "volume": 311113,
+      "day_high_price": 4.12,
+      "day_low_price": 4.04,
+      "change_in_percent": "-1.463%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-09-04T00:00:00+1000",
+      "close_price": 4.1,
+      "change_price": -0.01,
+      "volume": 469512,
+      "day_high_price": 4.15,
+      "day_low_price": 4.09,
+      "change_in_percent": "-0.243%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-09-01T00:00:00+1000",
+      "close_price": 4.11,
+      "change_price": 0,
+      "volume": 315924,
+      "day_high_price": 4.17,
+      "day_low_price": 4.1,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-31T00:00:00+1000",
+      "close_price": 4.11,
+      "change_price": 0,
+      "volume": 367765,
+      "day_high_price": 4.17,
+      "day_low_price": 4.1,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-30T00:00:00+1000",
+      "close_price": 4.11,
+      "change_price": 0.01,
+      "volume": 188683,
+      "day_high_price": 4.18,
+      "day_low_price": 4.11,
+      "change_in_percent": "0.244%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-29T00:00:00+1000",
+      "close_price": 4.1,
+      "change_price": 0,
+      "volume": 459121,
+      "day_high_price": 4.16,
+      "day_low_price": 4.1,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-28T00:00:00+1000",
+      "close_price": 4.1,
+      "change_price": -0.12,
+      "volume": 507505,
+      "day_high_price": 4.22,
+      "day_low_price": 4.1,
+      "change_in_percent": "-2.844%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-25T00:00:00+1000",
+      "close_price": 4.22,
+      "change_price": -0.07,
+      "volume": 819996,
+      "day_high_price": 4.32,
+      "day_low_price": 4.2,
+      "change_in_percent": "-1.632%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-24T00:00:00+1000",
+      "close_price": 4.29,
+      "change_price": -0.03,
+      "volume": 267992,
+      "day_high_price": 4.36,
+      "day_low_price": 4.29,
+      "change_in_percent": "-0.694%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-23T00:00:00+1000",
+      "close_price": 4.32,
+      "change_price": -0.01,
+      "volume": 283839,
+      "day_high_price": 4.35,
+      "day_low_price": 4.31,
+      "change_in_percent": "-0.231%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-22T00:00:00+1000",
+      "close_price": 4.33,
+      "change_price": 0.02,
+      "volume": 118825,
+      "day_high_price": 4.34,
+      "day_low_price": 4.32,
+      "change_in_percent": "0.464%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-21T00:00:00+1000",
+      "close_price": 4.31,
+      "change_price": -0.02,
+      "volume": 316770,
+      "day_high_price": 4.34,
+      "day_low_price": 4.3,
+      "change_in_percent": "-0.462%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-18T00:00:00+1000",
+      "close_price": 4.33,
+      "change_price": 0.04,
+      "volume": 168100,
+      "day_high_price": 4.33,
+      "day_low_price": 4.28,
+      "change_in_percent": "0.932%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-17T00:00:00+1000",
+      "close_price": 4.29,
+      "change_price": -0.01,
+      "volume": 264740,
+      "day_high_price": 4.34,
+      "day_low_price": 4.28,
+      "change_in_percent": "-0.233%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-16T00:00:00+1000",
+      "close_price": 4.3,
+      "change_price": 0.01,
+      "volume": 238529,
+      "day_high_price": 4.31,
+      "day_low_price": 4.28,
+      "change_in_percent": "0.233%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-15T00:00:00+1000",
+      "close_price": 4.29,
+      "change_price": -0.01,
+      "volume": 197482,
+      "day_high_price": 4.33,
+      "day_low_price": 4.29,
+      "change_in_percent": "-0.233%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-14T00:00:00+1000",
+      "close_price": 4.3,
+      "change_price": 0,
+      "volume": 258160,
+      "day_high_price": 4.34,
+      "day_low_price": 4.3,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-11T00:00:00+1000",
+      "close_price": 4.3,
+      "change_price": 0,
+      "volume": 154555,
+      "day_high_price": 4.3,
+      "day_low_price": 4.27,
+      "change_in_percent": "0%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-10T00:00:00+1000",
+      "close_price": 4.3,
+      "change_price": 0.01,
+      "volume": 221780,
+      "day_high_price": 4.31,
+      "day_low_price": 4.28,
+      "change_in_percent": "0.233%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-09T00:00:00+1000",
+      "close_price": 4.29,
+      "change_price": 0.01,
+      "volume": 298384,
+      "day_high_price": 4.33,
+      "day_low_price": 4.26,
+      "change_in_percent": "0.234%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-08T00:00:00+1000",
+      "close_price": 4.28,
+      "change_price": 0.01,
+      "volume": 379572,
+      "day_high_price": 4.32,
+      "day_low_price": 4.26,
+      "change_in_percent": "0.234%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-07T00:00:00+1000",
+      "close_price": 4.27,
+      "change_price": -0.05,
+      "volume": 808787,
+      "day_high_price": 4.37,
+      "day_low_price": 4.26,
+      "change_in_percent": "-1.157%"
+    },
+    {
+      "code": "SHV",
+      "close_date": "2017-08-04T00:00:00+1000",
+      "close_price": 4.32,
+      "change_price": 0.07,
+      "volume": 1044460,
+      "day_high_price": 4.44,
+      "day_low_price": 4.32,
+      "change_in_percent": "1.647%"
+    },
+    {
+      "code": "SHV",
       "close_date": "2017-08-03T00:00:00+1000",
       "close_price": 4.25,
       "change_price": -0.67,
@@ -2776,306 +3056,6 @@ var data: any = {
       "day_high_price": 7.78,
       "day_low_price": 7.59,
       "change_in_percent": "-0.262%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-27T00:00:00+1000",
-      "close_price": 7.62,
-      "change_price": -0.18,
-      "volume": 494028,
-      "day_high_price": 7.84,
-      "day_low_price": 7.59,
-      "change_in_percent": "-2.308%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-26T00:00:00+1000",
-      "close_price": 7.8,
-      "change_price": 0.21,
-      "volume": 615142,
-      "day_high_price": 7.85,
-      "day_low_price": 7.59,
-      "change_in_percent": "2.767%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-25T00:00:00+1000",
-      "close_price": 7.59,
-      "change_price": 0.04,
-      "volume": 247433,
-      "day_high_price": 7.68,
-      "day_low_price": 7.48,
-      "change_in_percent": "0.53%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-22T00:00:00+1000",
-      "close_price": 7.55,
-      "change_price": -0.07,
-      "volume": 511826,
-      "day_high_price": 7.67,
-      "day_low_price": 7.48,
-      "change_in_percent": "-0.919%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-21T00:00:00+1000",
-      "close_price": 7.62,
-      "change_price": -0.02,
-      "volume": 533075,
-      "day_high_price": 7.7,
-      "day_low_price": 7.55,
-      "change_in_percent": "-0.262%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-20T00:00:00+1000",
-      "close_price": 7.64,
-      "change_price": 0.12,
-      "volume": 536883,
-      "day_high_price": 7.75,
-      "day_low_price": 7.48,
-      "change_in_percent": "1.596%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-19T00:00:00+1000",
-      "close_price": 7.52,
-      "change_price": 0.02,
-      "volume": 363760,
-      "day_high_price": 7.7,
-      "day_low_price": 7.47,
-      "change_in_percent": "0.267%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-18T00:00:00+1000",
-      "close_price": 7.5,
-      "change_price": 0.05,
-      "volume": 526537,
-      "day_high_price": 7.56,
-      "day_low_price": 7.15,
-      "change_in_percent": "0.671%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-15T00:00:00+1000",
-      "close_price": 7.45,
-      "change_price": -0.22,
-      "volume": 405742,
-      "day_high_price": 7.66,
-      "day_low_price": 7.41,
-      "change_in_percent": "-2.868%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-14T00:00:00+1000",
-      "close_price": 7.67,
-      "change_price": 0.05,
-      "volume": 563519,
-      "day_high_price": 7.75,
-      "day_low_price": 7.5,
-      "change_in_percent": "0.656%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-13T00:00:00+1000",
-      "close_price": 7.62,
-      "change_price": 0.01,
-      "volume": 459096,
-      "day_high_price": 7.76,
-      "day_low_price": 7.56,
-      "change_in_percent": "0.131%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-12T00:00:00+1000",
-      "close_price": 7.61,
-      "change_price": -0.02,
-      "volume": 681942,
-      "day_high_price": 7.83,
-      "day_low_price": 7.54,
-      "change_in_percent": "-0.262%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-11T00:00:00+1000",
-      "close_price": 7.63,
-      "change_price": 0.24,
-      "volume": 722380,
-      "day_high_price": 7.65,
-      "day_low_price": 7.4,
-      "change_in_percent": "3.248%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-08T00:00:00+1000",
-      "close_price": 7.39,
-      "change_price": 0.14,
-      "volume": 494471,
-      "day_high_price": 7.41,
-      "day_low_price": 7.15,
-      "change_in_percent": "1.931%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-07T00:00:00+1000",
-      "close_price": 7.25,
-      "change_price": 0,
-      "volume": 529498,
-      "day_high_price": 7.41,
-      "day_low_price": 7.12,
-      "change_in_percent": "0%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-06T00:00:00+1000",
-      "close_price": 7.25,
-      "change_price": -0.13,
-      "volume": 612864,
-      "day_high_price": 7.35,
-      "day_low_price": 6.98,
-      "change_in_percent": "-1.762%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-05T00:00:00+1000",
-      "close_price": 7.38,
-      "change_price": -0.15,
-      "volume": 664665,
-      "day_high_price": 7.65,
-      "day_low_price": 7.33,
-      "change_in_percent": "-1.992%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-04T00:00:00+1000",
-      "close_price": 7.53,
-      "change_price": 0.6,
-      "volume": 871983,
-      "day_high_price": 7.55,
-      "day_low_price": 6.97,
-      "change_in_percent": "8.658%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-07-01T00:00:00+1000",
-      "close_price": 6.93,
-      "change_price": 0.19,
-      "volume": 775464,
-      "day_high_price": 6.95,
-      "day_low_price": 6.74,
-      "change_in_percent": "2.819%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-30T00:00:00+1000",
-      "close_price": 6.74,
-      "change_price": 0.04,
-      "volume": 566110,
-      "day_high_price": 6.97,
-      "day_low_price": 6.72,
-      "change_in_percent": "0.597%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-29T00:00:00+1000",
-      "close_price": 6.7,
-      "change_price": 0.02,
-      "volume": 501060,
-      "day_high_price": 7.02,
-      "day_low_price": 6.7,
-      "change_in_percent": "0.299%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-28T00:00:00+1000",
-      "close_price": 6.68,
-      "change_price": -0.04,
-      "volume": 499387,
-      "day_high_price": 6.73,
-      "day_low_price": 6.5,
-      "change_in_percent": "-0.595%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-27T00:00:00+1000",
-      "close_price": 6.72,
-      "change_price": -0.05,
-      "volume": 575122,
-      "day_high_price": 6.86,
-      "day_low_price": 6.52,
-      "change_in_percent": "-0.739%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-24T00:00:00+1000",
-      "close_price": 6.77,
-      "change_price": -0.3,
-      "volume": 767479,
-      "day_high_price": 7.14,
-      "day_low_price": 6.63,
-      "change_in_percent": "-4.243%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-23T00:00:00+1000",
-      "close_price": 7.07,
-      "change_price": -0.02,
-      "volume": 683632,
-      "day_high_price": 7.15,
-      "day_low_price": 6.93,
-      "change_in_percent": "-0.282%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-22T00:00:00+1000",
-      "close_price": 7.09,
-      "change_price": 0.04,
-      "volume": 636139,
-      "day_high_price": 7.2,
-      "day_low_price": 7.01,
-      "change_in_percent": "0.567%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-21T00:00:00+1000",
-      "close_price": 7.05,
-      "change_price": 0.15,
-      "volume": 633536,
-      "day_high_price": 7.26,
-      "day_low_price": 6.965,
-      "change_in_percent": "2.174%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-20T00:00:00+1000",
-      "close_price": 6.9,
-      "change_price": 0.43,
-      "volume": 796506,
-      "day_high_price": 6.92,
-      "day_low_price": 6.48,
-      "change_in_percent": "6.646%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-17T00:00:00+1000",
-      "close_price": 6.47,
-      "change_price": -0.16,
-      "volume": 1052827,
-      "day_high_price": 6.73,
-      "day_low_price": 6.4,
-      "change_in_percent": "-2.413%"
-    },
-    {
-      "code": "SHV",
-      "close_date": "2016-06-16T00:00:00+1000",
-      "close_price": 6.63,
-      "change_price": 0.01,
-      "volume": 1091738,
-      "day_high_price": 6.92,
-      "day_low_price": 6.54,
-      "change_in_percent": "0.151%"
     }
   ]
 };

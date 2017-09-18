@@ -147,28 +147,28 @@ export class AppComponent {
       var shvData = this.shvData;
 
       // RFG
-      // var data = rfgData.data('Price End');
-      // var avg = { data: rfgData.avgPlot(data.data), label: 'Price Average' };
-      // var low = { data: rfgData.avgLowerPlot(data.data), label: 'Price Low Average' };
-      // var high = { data: rfgData.avgUpperPlot(data.data), label: 'Price High Average' };
-      // var floor = { data: rfgData.lowestPlot(data.data), label: 'Floor' };
-      // var sma = rfgData.ma({ days: 15, series: '15 Day MA', ema: false });
-      // var sma5 = rfgData.ma({ days: 5, series: '5 Day MA', ema: false });
-      // var sma50 = rfgData.ma({ days: 50, series: '50 Day MA', ema: false });
-      // var sma200 = rfgData.ma({ days: 200, series: '200 Day MA', ema: false });
-      // var ema15 = rfgData.ma({ days: 15, series: '15 Day EMA', ema: true });
+      var data = rfgData.data('Price End');
+      var avg = { data: rfgData.avgPlot(data.data), label: 'Price Average' };
+      var low = { data: rfgData.avgLowerPlot(data.data), label: 'Price Low Average' };
+      var high = { data: rfgData.avgUpperPlot(data.data), label: 'Price High Average' };
+      var floor = { data: rfgData.lowestPlot(data.data), label: 'Floor' };
+      var sma = rfgData.ma({ days: 15, series: '15 Day MA', ema: false });
+      var sma5 = rfgData.ma({ days: 5, series: '5 Day MA', ema: false });
+      var sma50 = rfgData.ma({ days: 50, series: '50 Day MA', ema: false });
+      var sma200 = rfgData.ma({ days: 200, series: '200 Day MA', ema: false });
+      var ema15 = rfgData.ma({ days: 15, series: '15 Day EMA', ema: true });
 
       // SHV
-      var data = shvData.data('Price End');
-      var avg = { data: shvData.avgPlot(data.data), label: 'Price Average' };
-      var low = { data: shvData.avgLowerPlot(data.data), label: 'Price Low Average' };
-      var high = { data: shvData.avgUpperPlot(data.data), label: 'Price High Average' };
-      var floor = { data: shvData.lowestPlot(data.data), label: 'Floor' };
-      var sma = shvData.ma({ days: 15, series: '15 Day MA', ema: false });
-      var sma5 = shvData.ma({ days: 5, series: '5 Day MA', ema: false });
-      var sma50 = shvData.ma({ days: 50, series: '50 Day MA', ema: false });
-      var sma200 = shvData.ma({ days: 200, series: '200 Day MA', ema: false });
-      var ema15 = shvData.ma({ days: 15, series: '15 Day EMA', ema: true });
+      // var data = shvData.data('Price End');
+      // var avg = { data: shvData.avgPlot(data.data), label: 'Price Average' };
+      // var low = { data: shvData.avgLowerPlot(data.data), label: 'Price Low Average' };
+      // var high = { data: shvData.avgUpperPlot(data.data), label: 'Price High Average' };
+      // var floor = { data: shvData.lowestPlot(data.data), label: 'Floor' };
+      // var sma = shvData.ma({ days: 15, series: '15 Day MA', ema: false });
+      // var sma5 = shvData.ma({ days: 5, series: '5 Day MA', ema: false });
+      // var sma50 = shvData.ma({ days: 50, series: '50 Day MA', ema: false });
+      // var sma200 = shvData.ma({ days: 200, series: '200 Day MA', ema: false });
+      // var ema15 = shvData.ma({ days: 15, series: '15 Day EMA', ema: true });
 
       //this.lineChartLabels = this.takeLastDays(+value, rfgData.labels());
       this.lineChartLabels = this.takeLastDays(+value, shvData.labels());
